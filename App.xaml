@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ShoppingListKI.App">
+
+    <Application.Resources>
+
+        <Color x:Key="BgMain">#F2EFEA</Color>
+        <Color x:Key="BgCard">#DED8CE</Color>
+        <Color x:Key="BgInput">#ECE7E0</Color>
+        <Color x:Key="TextMain">#2E2B26</Color>
+        <Color x:Key="Accent">#7A8F5B</Color>
+
+        <Style TargetType="ContentPage">
+            <Setter Property="BackgroundColor" Value="{StaticResource BgMain}" />
+        </Style>
+
+        <Style TargetType="Frame">
+            <Setter Property="BackgroundColor" Value="{StaticResource BgCard}" />
+            <Setter Property="CornerRadius" Value="16" />
+            <Setter Property="Padding" Value="12" />
+            <Setter Property="HasShadow" Value="False" />
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="{StaticResource TextMain}" />
+        </Style>
+
+        <Style TargetType="Entry">
+            <Setter Property="BackgroundColor" Value="{StaticResource BgInput}" />
+            <Setter Property="TextColor" Value="{StaticResource TextMain}" />
+        </Style>
+
+        <Style TargetType="Picker">
+            <Setter Property="BackgroundColor" Value="{StaticResource BgInput}" />
+            <Setter Property="TextColor" Value="{StaticResource TextMain}" />
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{StaticResource Accent}" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="CornerRadius" Value="12" />
+        </Style>
+
+    </Application.Resources>
+</Application>
