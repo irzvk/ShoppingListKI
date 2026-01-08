@@ -1,0 +1,36 @@
+﻿<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:ShoppingListKI.Views"
+    x:Class="ShoppingListKI.Views.ShopListPage"
+    BackgroundColor="#1E1E1E">
+
+    <VerticalStackLayout Padding="16" Spacing="14">
+
+        <Label
+            Text="Lista do sklepu"
+            FontSize="26"
+            TextColor="White"
+            HorizontalOptions="Center" />
+
+        <Picker
+            Title="Wybierz sklep"
+            ItemsSource="{Binding Sklepy}"
+            SelectedItem="{Binding WybranySklep}"
+            BackgroundColor="#F5F1EB"
+            TextColor="#2B2B2B" />
+
+        <CollectionView
+            ItemsSource="{Binding ListaDoSklepu}"
+            Margin="0,10,0,0">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <views:ProductView />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+    </VerticalStackLayout>
+</ContentPage>

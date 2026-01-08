@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:ShoppingListKI.ViewModels"
+    xmlns:views="clr-namespace:ShoppingListKI.Views"
+    x:Class="ShoppingListKI.MainPage">
+
+    <ContentPage.BindingContext>
+        <vm:MainViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="16">
+
+            <Label Text="Dodaj produkt" FontSize="20" />
+
+            <Picker
+                Title="Kategoria"
+                ItemsSource="{Binding Kategorie}"
+                ItemDisplayBinding="{Binding Nazwa}"
+                SelectedItem="{Binding WybranaKategoria}" />
+
+            <Entry
+                Placeholder="Nazwa produktu"
+                Text="{Binding NazwaProduktu}" />
+
+            <HorizontalStackLayout Spacing="8">
+                <Button Text="−" Command="{Binding ZmniejszIloscFormularzaCommand}" />
+                <Label Text="{Binding IloscProduktu}" VerticalOptions="Center"/>
+                <Button Text="+" Command="{Binding ZwiekszIloscFormularzaCommand}" />
+            </HorizontalStackLayout>
+
+
+            <Picker
+                Title="Sklep"
+                ItemsSource="{Binding Sklepy}"
+                SelectedItem="{Binding WybranySklepProduktu}" />
+
+            <Button
+                Text="Dodaj"
+                Command="{Binding DodajProduktCommand}" />
+
+            <BoxView HeightRequest="1" BackgroundColor="#CCC"/>
+
+            <Label Text="Lista do sklepu" FontSize="20"/>
+
+            <Picker
+                Title="Filtr sklepu"
+                ItemsSource="{Binding Sklepy}"
+                SelectedItem="{Binding WybranySklepFiltr}" />
+
+            <CollectionView ItemsSource="{Binding ProduktyDoSklepu}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <views:ProductView />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

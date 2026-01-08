@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ShoppingListKI.Views.ProductView">
+
+    <Border
+        BackgroundColor="#F5F1EB"
+        Stroke="#D6CFC4"
+        StrokeThickness="1"
+        StrokeShape="RoundRectangle 14"
+        Padding="12"
+        Margin="6">
+
+        <Grid
+            ColumnDefinitions="Auto,*,Auto"
+            RowDefinitions="Auto,Auto"
+            ColumnSpacing="12"
+            RowSpacing="4">
+
+            <CheckBox
+                Grid.RowSpan="2"
+                IsChecked="{Binding Kupione}"
+                VerticalOptions="Center" />
+
+            <Label
+                Grid.Column="1"
+                Text="{Binding Nazwa}"
+                FontSize="16"
+                TextColor="#000000"
+                VerticalOptions="Center" />
+
+            <Frame
+                Grid.Column="2"
+                Padding="6,2"
+                CornerRadius="8"
+                BackgroundColor="#6E8B6B"
+                HasShadow="False">
+
+                <Label
+                    Text="{Binding Ilosc, StringFormat='{0} szt.'}"
+                    FontSize="14"
+                    TextColor="White"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
+            </Frame>
+
+            <Label
+                Grid.Row="1"
+                Grid.Column="1"
+                Text="{Binding Sklep}"
+                FontSize="12"
+                TextColor="#6E8B6B" />
+
+            <Button
+                Grid.Row="1"
+                Grid.Column="2"
+                Text="Usuń"
+                FontSize="12"
+                BackgroundColor="#B85C5C"
+                TextColor="White"
+                Padding="6,2"
+                Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.UsunProduktCommand}"
+                CommandParameter="{Binding}" />
+
+        </Grid>
+    </Border>
+</ContentView>
